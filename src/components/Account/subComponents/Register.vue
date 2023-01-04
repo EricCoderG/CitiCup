@@ -71,7 +71,7 @@ export default {
   padding: 0;
   margin: 0;
   height: 100vh;
-  background: url("../images/bk.jpg");
+  background: url("../images/bk1.jpg");
   background-attachment: fixed;
   background-size: 100%;
   position: relative;
@@ -100,17 +100,6 @@ export default {
   padding-bottom: 2vh;
   font-size: large;
   font-weight: bold;
-  color: black;
-}
-
-.register_font {
-  padding-top: 2vh;
-  padding-left: 17vw;
-  cursor: pointer;
-}
-
-.type_font .el-form-item__label {
-  font-size: medium;
   color: black;
 }
 

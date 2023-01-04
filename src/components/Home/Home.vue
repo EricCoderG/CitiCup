@@ -12,7 +12,6 @@
 
 
 
-
         <div class="service-sub-div _service-sub-div">
           <div class="left">
             <BriefInfo :header-title="'行情揭示'" :header-info="'Market Revealed'" :header-font-color="'black'" :background-color="'rgb(19, 18, 25)'"

@@ -72,7 +72,7 @@ export default {
   padding: 0;
   margin: 0;
   height: 100vh;
-  background: url("../images/bk.jpg");
+  background: url("../images/bk1.jpg");
   background-attachment: fixed;
   background-size: 100%;
   position: relative;
@@ -106,7 +106,7 @@ export default {
 
 .register_font {
   padding-top: 2vh;
-  padding-left: 17vw;
+  text-align: right;
   cursor: pointer;
 }
 

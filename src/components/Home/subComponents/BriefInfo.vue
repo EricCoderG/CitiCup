@@ -18,10 +18,12 @@
 </template>
 
 <script>
-import MiniTitle from "~/components/CoComponents/MiniTitle.vue";
-import Alert from "~/components/CoComponents/Alert.vue";
+
+import MiniTitle from "../../CoComponents/MiniTitle.vue";
+import Alert from "../../CoComponents/Alert.vue";
+
 export default {
-  name: "ServiceInfo",
+  name: "BriefInfo",
   components:{
     MiniTitle, Alert
   },
