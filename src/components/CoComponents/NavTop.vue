@@ -4,7 +4,7 @@
     <div id="navID" class="main-nav-list _main-nav-list">
       <div class="nav-list-close"><i @click="closeMenu" class="iconfont icon-close"></i></div>
       <div style="margin-left: 0; display: flex">
-        <img src="src/components/CoComponents/images/logo.png" alt="logo">
+        <img src="../CoComponents/images/logo.png" alt="logo">
       </div>
       <div @click="routerPush('/')">首页</div>
       <div @click="routerPush('/about')">关于我们</div>

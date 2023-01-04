@@ -1,25 +1,19 @@
 <template>
-  <div class="home-container _home-container">
-    <div style="margin-top: 70px; margin-bottom: 100px;">
-      <div class="sub-title">登录您的账户</div>
-      <div class="login-sub-div _login-sub-div">
-        <div class="middle">
-          <el-form :model="form" label-width="60px">
-            <el-form-item label="用户名" style="font-size: medium">
-              <el-input v-model="form.username" placeholder="请输入用户名"/>
-            </el-form-item>
-            <el-form-item label="密码" style="font-size: medium">
-              <el-input v-model="form.password" type="password" autocomplete="off" placeholder="请输入密码"/>
-            </el-form-item>
-            <el-button type="primary" text style="font-size: medium" @click="submitForm()"
-            >登录
-            </el-button>
-            <el-button type="primary" text style="font-size: medium" @click="$router.push('/account/register')"
-            >注册
-            </el-button>
-          </el-form>
-        </div>
-      </div>
+  <div class="login">
+    <div class="my_login">
+      <div class="login_font">登录</div>
+      <el-form :model="form">
+        <el-form-item>
+          <el-input v-model="form.username" placeholder="请输入账号"/>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="form.password" type="password" autocomplete="off" placeholder="请输入密码"/>
+        </el-form-item>
+        <el-button type="primary" style="font-size: medium; width: 20vw" @click="submitForm()"
+        >登录
+        </el-button>
+        <div class="register_font" @click="$router.push('register')">注册 ></div>
+      </el-form>
     </div>
   </div>
 </template>
@@ -58,7 +52,7 @@ export default {
             if (res.status === this.successFlag) {
               this.$message.success('登录成功');
               this.$store.commit('changeLogin')
-              this.$router.push('account');
+              this.$router.push('');
             } else if (res.status === this.failFlag) {
               this.$message.error('账号密码不正确');
             }
@@ -72,65 +66,53 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.sub-title {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-  height: 10vh;
-  font: bolder 35px/50px Arial;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 5vh;
-  color: #242424;
+<style>
+.login {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background: url("../images/bk.jpg");
+  background-attachment: fixed;
+  background-size: 100%;
+  position: relative;
 }
 
-// 大于800px
-@media only screen and (min-width: 800px) {
-  .home-container {
-    font-size: 1vw;
-
-    .login-sub-div {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      font-size: .5em;
-
-      .middle {
-        width: 30%;
-        height: 100%;
-        font-size: .8em;
-        margin-left: 35%;
-        margin-right: 35%;
-      }
-    }
-  }
+.my_login {
+  width: 26vw;
+  height: 34vh;
+  position: absolute;
+  top: 0;
+  left: 55%;
+  right: 0;
+  bottom: 0;
+  background-color: #dde1e3;
+  margin: auto;
+  padding-top: 4vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 2vh;
+  opacity: 1;
+  box-shadow: #dde1e3 0 0 1vw;
 }
 
-// 小于800px
-@media only screen and (max-width: 800px) {
-  ._home-container {
-    font-size: 1vw;
-
-    .login-sub-div {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      font-size: .5em;
-
-      .middle {
-        width: 30%;
-        height: 100%;
-        font-size: .8em;
-        margin-left: 35%;
-        margin-right: 35%;
-      }
-    }
-  }
-}
-
-.about-txt {
-  font-size: 20px;
+.login_font {
+  padding-top: 1vh;
+  padding-bottom: 2vh;
+  font-size: large;
   font-weight: bold;
-
+  color: black;
 }
+
+.register_font {
+  padding-top: 2vh;
+  padding-left: 17vw;
+  cursor: pointer;
+}
+
+.type_font .el-form-item__label {
+  font-size: medium;
+  color: black;
+}
+
 </style>
