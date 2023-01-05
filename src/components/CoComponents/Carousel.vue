@@ -4,7 +4,7 @@
     <div>
       <!--这里高度为100vh表示高度为页面视角的100%-->
       <!--很好，要的就是这个效果-->
-      <el-carousel :interval="5000" :height="height">
+      <el-carousel :interval="2000" :height="height">
         <el-carousel-item v-for="item in imgList" :key="item.id" >
           <div class="txt-box" >
             <h1>{{item.title}}</h1>

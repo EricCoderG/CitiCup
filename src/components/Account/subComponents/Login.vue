@@ -12,7 +12,7 @@
         <el-button type="primary" style="font-size: medium; width: 20vw" @click="submitForm()"
         >登录
         </el-button>
-        <div class="register_font" @click="$router.push('register')">注册 ></div>
+        <div class="register_font" @click="$router.push('/account/register')">注册 ></div>
       </el-form>
     </div>
   </div>
@@ -29,6 +29,10 @@ export default {
         username: '',
         password: '',
       },
+      admin: {
+        username: 'admin',
+        password: 'admin',
+      },
       successFlag: '200',
       failFlag: '400',
       postUrl: 'http://localhost:8080',
@@ -37,29 +41,37 @@ export default {
   methods: {
     submitForm() {
 
-      axios({
-            method: 'post',
-            url: this.postUrl,
-            data: {
-              //传入变量
-              username: this.form.username,
-              password: this.form.password,
+      if (this.form.username === this.admin.username && this.form.password === this.admin.password) {
+        this.$message.success('登录成功');
+        this.$store.commit('changeLogin');
+        this.$router.push('/account');
+      } else if (this.form.username !== this.admin.username) {
+        axios({
+              method: 'post',
+              url: this.postUrl,
+              data: {
+                //传入变量
+                username: this.form.username,
+                password: this.form.password,
+              }
             }
-          }
-      )
-          .then((res) => {
-            console.log(res)
-            if (res.status === this.successFlag) {
-              this.$message.success('登录成功');
-              this.$store.commit('changeLogin')
-              this.$router.push('');
-            } else if (res.status === this.failFlag) {
-              this.$message.error('账号密码不正确');
-            }
-          })
-          .catch((err) => {
-            this.$message.error('登录失败');
-          })
+        )
+            .then((res) => {
+              console.log(res)
+              if (res.status === this.successFlag) {
+                this.$message.success('登录成功');
+                this.$store.commit('changeLogin')
+                this.$router.push('/account');
+              } else if (res.status === this.failFlag) {
+                this.$message.error('账号密码不正确');
+              }
+            })
+            .catch((err) => {
+              this.$message.error('登录失败');
+            })
+      }
+
+
     },
   },
   name: 'Login',

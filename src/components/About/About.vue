@@ -5,10 +5,9 @@
 
       <AboutInfo :header-title="'SSE STAR Market Maker'" :header-title-font-size="2.4" :header-font-color="'white'"
                  :imgSrc="'src/components/About/images/about.jpg'"
-                 :min-height="'90vh'"
+                 :min-height="'100vh'"
                  :Radius="'0'"
                  :headerInfo="'xxxxx'"/>
-      />
 
       <div class="about-us-box">
 
@@ -19,7 +18,7 @@
       </div>
 
 
-      <div style="margin-top: 0; margin-bottom: 100px;">
+      <div style="margin-top: 0; margin-bottom: 0;">
         <div class="sub-title">特色模块</div>
         <div class="module-sub-div _module-sub-div">
           <div class="left">
@@ -111,8 +110,8 @@ export default {
 }
 
 .about-us-box {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 20px;
+  margin-bottom: 50px;
   width: 100%;
 
   display: flex;
@@ -149,29 +148,6 @@ export default {
 @media only screen and (min-width: 800px) {
   .home-container {
     font-size: 1vw;
-
-    .service-sub-div {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      font-size: .5em;
-
-      .left {
-        width: 48%;
-        height: 100%;
-        font-size: .8em;
-        margin-left: 1.5%;
-        margin-right: 1.5%;
-      }
-
-      .right {
-        width: 48%;
-        height: 100%;
-        font-size: .8em;
-        margin-left: 1.5%;
-        margin-right: 1.5%;
-      }
-    }
 
     .module-sub-div {
       width: 100%;
@@ -210,29 +186,6 @@ export default {
 @media only screen and (max-width: 800px) {
   ._home-container {
     font-size: 1vw;
-
-    ._service-sub-div {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      font-size: .5em;
-
-      .left {
-        width: 100%;
-        height: 100%;
-        font-size: .8em;
-        margin-left: 2%;
-        margin-right: 2%;
-      }
-
-      .right {
-        width: 100%;
-        height: 100%;
-        font-size: .8em;
-        margin-left: 2%;
-        margin-right: 2%;
-      }
-    }
 
     ._module-sub-div {
       width: 100%;

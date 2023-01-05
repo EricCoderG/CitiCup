@@ -1,10 +1,12 @@
 <template>
   <div class="home-container _home-container">
     <div style="margin-top: 20px; margin-bottom: 30px;">
-      <div class="sub-title">账户管理</div>
-      <div v-if="this.$store.state.isLogin"></div>
+      <div v-if="this.$store.state.isLogin">
+        <div class="sub-title">账户管理</div>
+        <el-button type="primary" style="font-size: medium; width: 20vw" @click="logout">退出登录</el-button>
+      </div>
       <div v-else>
-        <router-link to="/account/login" style="font-size: large; color: #409EFF">点击登录</router-link>
+        <router-link to="/account/login" style="font-size: large; color: #409EFF">登录，进入您的做市网站 ></router-link>
       </div>
     </div>
   </div>
@@ -15,16 +17,15 @@
 export default {
   data() {
     return{
-      form:{
-        username: '',
-        password: '',
-      }
+
     }
   },
   methods: {
-    addUser(form) {
-
-    },
+    logout() {
+      this.$store.commit('changeLogin');
+      this.$message.success('退出成功');
+      this.$router.push('/account/login');
+    }
   },
   name: 'Account',
 }

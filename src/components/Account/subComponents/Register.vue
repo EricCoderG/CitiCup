@@ -50,8 +50,7 @@ export default {
             console.log(res)
             if (res.status === this.successFlag) {
               this.$message.success('注册成功');
-              this.$store.commit('changeLogin')
-              this.$router.push('');
+              this.$router.push('/account/login');
             } else if (res.status === this.failFlag) {
               this.$message.error('注册失败');
             }
