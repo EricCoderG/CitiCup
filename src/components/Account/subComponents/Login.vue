@@ -33,9 +33,8 @@ export default {
         username: 'admin',
         password: 'admin',
       },
-      successFlag: '200',
-      failFlag: '400',
-      postUrl: 'http://localhost:8080',
+      successFlag: 'ok',
+      failFlag: 'no',
     }
   },
   methods: {
@@ -47,8 +46,9 @@ export default {
         this.$router.push('/account');
       } else if (this.form.username !== this.admin.username) {
         axios({
+
               method: 'post',
-              url: this.postUrl,
+              url: 'http://localhost:5173/api/login/',
               data: {
                 //传入变量
                 username: this.form.username,
@@ -58,11 +58,11 @@ export default {
         )
             .then((res) => {
               console.log(res)
-              if (res.status === this.successFlag) {
+              if (res.data.code === this.successFlag) {
                 this.$message.success('登录成功');
                 this.$store.commit('changeLogin')
                 this.$router.push('/account');
-              } else if (res.status === this.failFlag) {
+              } else if (res.data.code === this.failFlag) {
                 this.$message.error('账号密码不正确');
               }
             })

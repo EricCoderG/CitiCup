@@ -28,9 +28,8 @@ export default {
         username: '',
         password: '',
       },
-      successFlag: '200',
-      failFlag: '400',
-      postUrl: 'http://localhost:8080',
+      successFlag: 'ok',
+      failFlag: 'no',
     }
   },
   methods: {
@@ -38,7 +37,7 @@ export default {
 
       axios({
             method: 'post',
-            url: this.postUrl,
+            url: 'http://localhost:5173/api/register/',
             data: {
               //传入变量
               username: this.form.username,
@@ -48,10 +47,10 @@ export default {
       )
           .then((res) => {
             console.log(res)
-            if (res.status === this.successFlag) {
+            if (res.data.code === this.successFlag) {
               this.$message.success('注册成功');
               this.$router.push('/account/login');
-            } else if (res.status === this.failFlag) {
+            } else if (res.data.code === this.failFlag) {
               this.$message.error('注册失败');
             }
           })
