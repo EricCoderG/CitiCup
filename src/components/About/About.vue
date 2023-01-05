@@ -1,12 +1,13 @@
 <template>
   <div style="background: url('src/components/Home/images/earth_.jpg') center">
-    <div class="title">关于我们</div>
 
     <div class="home-container _home-container">
 
-      <AboutInfo :header-title="'基于深度强化学习的交易策略'" :header-title-font-size="2" :header-font-color="'white'"
-                 :imgSrc="'src/components/Home/images/dl.jpg'"
+      <AboutInfo :header-title="'SSE STAR Market Maker'" :header-title-font-size="2.4" :header-font-color="'white'"
+                 :imgSrc="'src/components/About/images/about.jpg'"
                  :min-height="'90vh'"
+                 :Radius="'0'"
+                 :headerInfo="'xxxxx'"/>
       />
 
       <div class="about-us-box">
@@ -22,22 +23,25 @@
         <div class="sub-title">特色模块</div>
         <div class="module-sub-div _module-sub-div">
           <div class="left">
-            <AboutInfo :header-title="'基于深度强化学习的交易策略'" :header-title-font-size="2" :header-font-color="'white'"
+            <AboutInfo :header-title="'基于深度强化学习的交易策略'" :header-title-font-size="2.4" :header-font-color="'white'"
                        :imgSrc="'src/components/Home/images/dl.jpg'" :min-height="'500px'"
+                       :Radius="'5%'"
             />
           </div>
           <div class="middle">
             <AboutInfo :header-title="'科创板股票定价          '" :header-font-color="'black'"
-                       :header-title-font-size="2"
+                       :header-title-font-size="2.4"
                        :imgSrc="'src/components/Home/images/stock_.jpg'"
                        :min-height="'500px'"
+                       :Radius="'5%'"
             />
           </div>
           <div class="right">
             <AboutInfo :header-title="'系统性风险预警          '" :header-font-color="'white'"
-                       :header-title-font-size="2"
+                       :header-title-font-size="2.4"
                        :imgSrc="'src/components/Home/images/alert.jpg'"
                        :min-height="'500px'"
+                       :Radius="'5%'"
             />
           </div>
         </div>
@@ -45,23 +49,26 @@
              style="padding-bottom: 2vh; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
           <div class="left">
             <AboutInfo :header-title="'行业前景提示             '" :header-font-color="'black'"
-                       :header-title-font-size="2"
+                       :header-title-font-size="2.4"
                        :imgSrc="'src/components/Home/images/develop.jpg'"
                        :min-height="'500px'"
+                       :Radius="'5%'"
             />
           </div>
           <div class="middle">
             <AboutInfo :header-title="'上市前五天公司做市'" :header-font-color="'white'"
-                       :header-title-font-size="2"
+                       :header-title-font-size="2.4"
                        :imgSrc="'src/components/Home/images/ipo_5.jpg'"
                        :min-height="'500px'"
+                       :Radius="'5%'"
             />
           </div>
           <div class="right">
             <AboutInfo :header-title="'未盈利公司做市'" :header-font-color="'black'"
-                       :header-title-font-size="2"
+                       :header-title-font-size="2.4"
                        :imgSrc="'src/components/Home/images/ipo.jpg'"
                        :min-height="'500px'"
+                       :Radius="'5%'"
             />
           </div>
         </div>

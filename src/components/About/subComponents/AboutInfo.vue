@@ -1,7 +1,7 @@
 <template>
 
   <div class="_box_" :style="'min-height: ' + String(minHeight) + ';background: url(' + imgSrc + ') no-repeat; ' +
-   'background-size: cover; width:100%; height: 100%; object-fit: cover;'">
+   'background-size: cover; width:100%; height: 100%; object-fit: cover; border-radius: ' + String(Radius)">
     <AboutTitle :header-title="headerTitle" :header-info="headerInfo" :header-font-color="headerFontColor"
                :header-title-font-size="headerTitleFontSize"/>
   </div>
@@ -33,7 +33,8 @@ export default {
     'headerInfo', //briefInfo标题下面的小文字
     'headerFontColor', //briefInfo的标题的颜色
     'headerTitleFontSize', //briefInfo的标题的字体大小
-      'minHeight', //briefInfo的最小高度
+      'minHeight', //盒子的最小高度
+      'Radius', //盒子的圆角
   ],
   methods: {
 
@@ -52,7 +53,6 @@ export default {
   align-items: center;
   padding-top: 10%;
   margin-bottom: 4vh;
-  border-radius: 5%;
   transition: all 0.3s;
 }
 

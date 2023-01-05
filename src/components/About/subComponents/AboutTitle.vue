@@ -15,7 +15,6 @@
 export default {
   data() {
     return {
-      alerted: true
     }
   },
   name: "AboutTitle",
@@ -24,6 +23,7 @@ export default {
     'headerInfo', //briefIndo的内容
     'headerFontColor', //briefIndo的字体颜色
     'headerTitleFontSize', //briefInfo的字体大小
+      'fontFamily', //briefInfo的字体
   ],
   components: {},
   methods: {
@@ -35,7 +35,7 @@ export default {
 <style lang="less" scoped>
 .miniTitleContainer {
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 0;
   right: 0;
   display: flex;
