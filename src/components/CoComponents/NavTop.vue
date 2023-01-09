@@ -11,7 +11,7 @@
       <div style="width: 125px; align-items: center; justify-content: center">
         <el-dropdown >
           <div>
-            <el-button text type="default" class="service" style="color: rgb(214, 214, 214);" plain>账户
+            <el-button @click="$router.push('/account')" text type="default" class="service" style="color: rgb(214, 214, 214);" plain>账户
               <el-icon>
                 <ArrowDownBold/>
               </el-icon>
