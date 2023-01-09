@@ -26,11 +26,6 @@ export default {
     }
   },
   methods: {
-    logout() {
-      this.$store.commit('changeLogin');
-      this.$message.success('退出成功');
-      this.$router.push('/account/login');
-    }
   },
   name: 'Account',
 }

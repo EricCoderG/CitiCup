@@ -8,7 +8,23 @@
       </div>
       <div @click="routerPush('/')">首页</div>
       <div @click="routerPush('/about')">关于我们</div>
-      <div @click="routerPush('/account')">账户</div>
+      <div style="width: 125px; align-items: center; justify-content: center">
+        <el-dropdown >
+          <div>
+            <el-button text type="default" class="service" style="color: rgb(214, 214, 214);" plain>账户
+              <el-icon>
+                <ArrowDownBold/>
+              </el-icon>
+            </el-button>
+          </div>
+
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
       <div style="width: 125px; align-items: center; justify-content: center">
         <el-dropdown >
           <div>
@@ -46,6 +62,11 @@ export default {
     }
   },
   methods: {
+    logout() {
+      this.$store.commit('changeLogin');
+      this.$message.success('退出成功');
+      this.$router.push('/account/login');
+    },
     routerPush(to){
       this.$router.push({
         path: to,
