@@ -1,12 +1,19 @@
 <template>
   <div class="bk">
-    <div style="margin-top: 20px; margin-bottom: 30px;">
+    <div style="margin-top: 2vh; margin-bottom: 3vh;">
       <div v-if="this.$store.state.isLogin">
         <div class="sub-title">账户管理</div>
-        <div class="line-chart">
-          <MyLineChart/>
+        <div class="common-layout">
+          <el-container>
+            <el-aside width="45%">
+              <div class="common_text">账号: </div>
+              <div class="common_text">现金: </div>
+            </el-aside>
+            <el-main>
+              <div class="chart_container1"><MyLineChart/></div>
+            </el-main>
+          </el-container>
         </div>
-
       </div>
       <div v-else>
         <router-link to="/account/login" class="login-txt">请登录您的账户 ></router-link>
@@ -26,9 +33,7 @@ export default {
   },
   data() {
     return {
-      test :{
-
-      }
+      test: {}
     }
   },
   methods: {},
@@ -59,5 +64,17 @@ export default {
   color: #fafafa;
 }
 
+.chart_container1 {
+  margin: 0;
+  padding-top: 3vh;
+}
+
+.common_text {
+  font-size: 25px;
+  font-weight: bold;
+  color: #fafafa;
+  padding-top: 11vh;
+  padding-right: 20vw;
+}
 
 </style>

@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-import vuexAlong from 'vuex-along'
 
 const store = createStore({
   state () {
@@ -14,7 +13,6 @@ const store = createStore({
       console.log('changeLogin: login state is ' + state.isLogin)
     },
   },
-  plugins: [vuexAlong]
 })
 
 
