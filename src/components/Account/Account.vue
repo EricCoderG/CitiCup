@@ -6,7 +6,7 @@
         <el-button type="primary" style="font-size: medium; width: 20vw" @click="logout">退出登录</el-button>
       </div>
       <div v-else>
-        <router-link to="/account/login" style="font-size: large; color: #409EFF">登录，进入您的做市网站 ></router-link>
+        <Login/>
       </div>
     </div>
   </div>
@@ -14,7 +14,12 @@
 
 <script>
 
+import Login from "./subComponents/Login.vue";
+
 export default {
+  components: {
+    Login,
+  },
   data() {
     return{
 
