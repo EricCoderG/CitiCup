@@ -1,89 +1,63 @@
 <template>
-  <div class="home-container _home-container">
+  <div class="bk">
     <div style="margin-top: 20px; margin-bottom: 30px;">
       <div v-if="this.$store.state.isLogin">
         <div class="sub-title">账户管理</div>
+        <div class="line-chart">
+          <MyLineChart/>
+        </div>
+
       </div>
       <div v-else>
-        <Login/>
+        <router-link to="/account/login" class="login-txt">请登录您的账户 ></router-link>
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 
-import Login from "./subComponents/Login.vue";
+import MyLineChart from "./subComponents/MyLineChart.vue";
 
 export default {
   components: {
-    Login,
+    MyLineChart,
   },
   data() {
-    return{
+    return {
+      test :{
 
+      }
     }
   },
-  methods: {
-  },
+  methods: {},
   name: 'Account',
 }
 </script>
 
 <style lang="less" scoped>
-.sub-title{
+
+.bk {
+  width: 100vw;
+  padding: 1%;
+  margin: 0;
+  background-color: #1b1b1b;
+}
+
+.sub-title {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  height: 10vh;
-  font:bolder 35px/50px Arial;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 5vh;
-  color: #242424;
-}
-// 大于800px
-@media only screen and (min-width: 800px){
-  .home-container{
-    font-size: 1vw;
-    .login-sub-div{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      font-size: .5em;
-      .middle{
-        width: 30%;
-        height: 100%;
-        font-size: .8em;
-        margin-left: 35%;
-        margin-right: 35%;
-      }
-    }
-  }
+  font: bolder 45px/50px Arial;
+  color: #fafafa;
 }
 
-// 小于800px
-@media only screen and (max-width: 800px){
-  ._home-container{
-    font-size: 1vw;
-    .login-sub-div{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      font-size: .5em;
-      .middle{
-        width: 30%;
-        height: 100%;
-        font-size: .8em;
-        margin-left: 35%;
-        margin-right: 35%;
-      }
-    }
-  }
-}
-
-.about-txt{
+.login-txt {
   font-size: 20px;
   font-weight: bold;
-
+  color: #fafafa;
 }
+
+
 </style>
