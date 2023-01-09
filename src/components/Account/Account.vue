@@ -3,7 +3,6 @@
     <div style="margin-top: 20px; margin-bottom: 30px;">
       <div v-if="this.$store.state.isLogin">
         <div class="sub-title">账户管理</div>
-        <el-button type="primary" style="font-size: medium; width: 20vw" @click="logout">退出登录</el-button>
       </div>
       <div v-else>
         <Login/>
