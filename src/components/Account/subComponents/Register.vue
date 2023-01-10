@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="my_login">
+    <div class="my_register">
       <div class="login_font">注册</div>
       <el-form :model="form">
         <el-form-item>
@@ -9,7 +9,10 @@
         <el-form-item>
           <el-input v-model="form.password" type="password" autocomplete="off" placeholder="请输入密码"/>
         </el-form-item>
-        <el-button type="primary" style="font-size: medium; width: 20vw" @click="submitForm()"
+        <el-form-item>
+          <el-input v-model="form.initial_money" placeholder="请输入初始金额"/>
+        </el-form-item>
+        <el-button type="primary" style="font-size: medium; width: 20vw;" @click="submitForm()"
         >注册
         </el-button>
       </el-form>
@@ -27,6 +30,7 @@ export default {
       form: {
         username: '',
         password: '',
+        initial_money: 10000,
       },
       successFlag: 'ok',
       failFlag: 'no',
@@ -42,6 +46,7 @@ export default {
               //传入变量
               username: this.form.username,
               password: this.form.password,
+              initial_money: this.form.initial_money,
             }
           }
       )
@@ -75,9 +80,9 @@ export default {
   position: relative;
 }
 
-.my_login {
+.my_register {
   width: 26vw;
-  height: 34vh;
+  height: 40vh;
   position: absolute;
   top: 0;
   left: 55%;

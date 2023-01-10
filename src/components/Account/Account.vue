@@ -10,6 +10,9 @@
               <div class="common_text">现金:&nbsp&nbsp&nbsp{{ this.$store.state.money }}</div>
               <div class="common_text">总资产:&nbsp&nbsp&nbsp{{ this.totalAssets }}</div>
               <div class="common_text">资产变动幅度:&nbsp&nbsp&nbsp{{ this.assetsChangeRate }}%</div>
+              <el-icon :size="40" color="#fafafa">
+                <RefreshRight @click="refresh" style="margin-top: 5vh; cursor: pointer"/>
+              </el-icon>
             </div>
             <div class="right_box">
               <div class="pie_chart_container">
@@ -56,6 +59,7 @@
 import MyLineChart from "./subComponents/MyLineChart.vue";
 import MyPineChart from "./subComponents/MyPineChart.vue";
 import MyTable from "./subComponents/MyTable.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -109,6 +113,8 @@ export default {
         {futures_kind: "铅", holdings: 100, price: 100, rate: 10, sum: 10000},
         {futures_kind: "镍", holdings: 100, price: 100, rate: 10, sum: 10000},
       ],
+      successFlag: 'ok',
+      failFlag: 'no',
     }
   },
   computed: {
@@ -119,7 +125,31 @@ export default {
       return 0;
     },
   },
-  methods: {},
+  methods: {
+    refresh() {
+      //console.log("refresh");
+      axios({
+            method: 'post',
+            url: 'http://localhost:5173/api/reflesh/',
+            data: {
+              username: this.$store.state.username,
+            }
+          }
+      )
+          .then((res) => {
+            console.log(res)
+            if (res.data.code === this.successFlag) {
+              this.$message.success('刷新成功');
+              this.$store.commit('setMoney', res.data.money);
+            } else if (res.data.code === this.failFlag) {
+              this.$message.error('刷新失败');
+            }
+          })
+          .catch((err) => {
+            this.$message.error('刷新失败');
+          })
+    },
+  },
   name: 'Account',
 }
 </script>
@@ -191,10 +221,10 @@ export default {
 }
 
 .common_text {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: #fafafa;
-  padding-top: 5vh;
+  padding-top: 4vh;
   padding-left: 3vw;
   text-align: left;
 }
