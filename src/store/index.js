@@ -5,6 +5,8 @@ const store = createStore({
     return {
       isLogin: false,
       isAdmin: false,
+      UserName: '',
+      money: 10000,
     }
   },
   mutations: {
@@ -12,6 +14,10 @@ const store = createStore({
       state.isLogin = true
       console.log('changeLogin: login state is ' + state.isLogin)
     },
+    changeUserName (state, name) {
+      state.UserName = name
+      console.log('changeUserName: user name is ' + state.UserName)
+    }
   },
 })
 

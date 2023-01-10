@@ -8,6 +8,8 @@ import 'windi.css'
 import 'animate.css'
 import store from './store/index.js'
 import * as echarts from 'echarts'
+import Vue3EasyDataTable from 'vue3-easy-data-table';
+import 'vue3-easy-data-table/dist/style.css';
 
 const app = createApp(App).use(store)
 
@@ -18,6 +20,8 @@ app.use(store)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
+
+app.component('EasyDataTable', Vue3EasyDataTable);
 
 app.config.globalProperties.$echarts = echarts
 app.mount('#app')

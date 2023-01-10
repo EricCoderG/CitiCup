@@ -43,6 +43,7 @@ export default {
       if (this.form.username === this.admin.username && this.form.password === this.admin.password) {
         this.$message.success('登录成功');
         this.$store.commit('changeLogin');
+        this.$store.commit('changeUserName', this.form.username);
         this.$router.push('/account');
       } else if (this.form.username !== this.admin.username) {
         axios({
@@ -61,6 +62,7 @@ export default {
               if (res.data.code === this.successFlag) {
                 this.$message.success('登录成功');
                 this.$store.commit('changeLogin')
+                this.$store.commit('changeUserName', this.form.username);
                 this.$router.push('/account');
               } else if (res.data.code === this.failFlag) {
                 this.$message.error('账号密码不正确');

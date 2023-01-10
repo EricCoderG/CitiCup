@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="line-chart"></div>
+  <div id="line" class="line-chart"></div>
 </template>
 
 <script>
@@ -9,21 +9,22 @@ export default {
   name: "LineChart",
   data() {
     return {
-      xAxisData: ["12-3", "12-4", "12-5", "12-6", "12-7", "12-8"],
-      seriesData: [120, 132, 101, 134, 90, 230],
+
     };
   },
+  props:["xAxisData","lineData"],
   computed: {
     maxY() {
-      return Math.max(...this.seriesData) * 1.5;
+      return Math.max(...this.lineData) * 1.5;
     },
   },
   mounted() {
-    let myChart = echarts.init(document.getElementById("main"), 'dark');
+    let myChart = echarts.init(document.getElementById("line"), 'dark');
     myChart.setOption({
       backgroundColor: "#1b1b1b",
       title: {
-        text: "资产总额走势图",
+        text: "资产总额走势",
+        fontWight: "bold",
       },
       xAxis: {
         data: this.xAxisData,
@@ -46,7 +47,6 @@ export default {
           color: "#fafafa",
           show: true,
         },
-        name: "资产总额",
         nameTextStyle: {
           color: "#fafafa",
           fontWeight: "bold",
@@ -60,7 +60,16 @@ export default {
       series: [{
         name: "资产总额",
         type: "line",
-        data: this.seriesData,
+        data: this.lineData,
+        label: {
+          normal: {
+            show: true,
+            position: "top",
+            textStyle: {
+              color: "#fafafa",
+            },
+          },
+        },
       }, ],
       grid: {
         left: "2%",
@@ -79,8 +88,8 @@ export default {
 <style scoped>
 
 .line-chart {
-  width: 50vw;
-  height: 35vh;
+  width: 40vw;
+  height: 40vh;
 }
 
 </style>
